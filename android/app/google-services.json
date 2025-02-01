@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573124194895",
+    "project_id": "advertisment-app",
+    "storage_bucket": "advertisment-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573124194895:android:0bc23b8561cbafb3ad303a",
+        "android_client_info": {
+          "package_name": "com.example.advertisement_application_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2WtOwR_ZKVg0EYPCo25c0rCeL1tr1kDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

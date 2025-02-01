@@ -1,6 +1,6 @@
 
-import 'package:advertisement_application_flutter/sign_in_screen.dart';
-import 'package:advertisement_application_flutter/sign_up_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/sign_in_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/sign_up_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
