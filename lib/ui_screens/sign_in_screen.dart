@@ -1,9 +1,11 @@
 import 'dart:developer';
 import 'package:advertisement_application_flutter/ui_screens/sign_up_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../global/widgets/button.dart';
 import '../global/widgets/text_field.dart';
 import '../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'client_side_screen.dart';
 import 'home_screen.dart';
 
 class SignInScreenUi extends StatefulWidget {
@@ -78,14 +80,22 @@ class _SignInScreenUiState extends State<SignInScreenUi> {
     context,
     MaterialPageRoute(builder: (context) => const MyHomePage()),
   );
+  goToClientScreen(BuildContext context) => Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const ClientSideScreen())
+  );
 
   _login() async {
-    final user =
-    await _auth.loginUserWithEmailAndPassword(_email.text, _password.text);
+    final user = await _auth.loginUserWithEmailAndPassword(_email.text, _password.text);
 
     if (user != null) {
       log("User Logged In");
-      goToHome(context);
+      goToClientScreen(context);
+    } else {
+      log("Login failed");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Invalid email or password")),
+      );
     }
   }
 }

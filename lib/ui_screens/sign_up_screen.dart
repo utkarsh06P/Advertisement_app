@@ -92,7 +92,7 @@ class _SignUpUiScreenState extends State<SignUpUiScreen> {
     final user =
     await _auth.createUserWithEmailAndPassword(_email.text, _password.text);
     if (user != null) {
-      log("User Created Succesfully");
+      print("User Created Succesfully");
       goToHome(context);
     }
   }
