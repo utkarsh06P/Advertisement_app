@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import '../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'MapScreen.dart';
 import 'home_screen.dart';
 
 class ClientSideScreen extends StatefulWidget {
@@ -135,6 +136,10 @@ class _ClientSideScreenState extends State<ClientSideScreen> {
                     if (_formKey.currentState!.validate()) {
                       // Handle form submission
                       print('Form submitted');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MapScreen()),
+                      );
                     }
                   },
                   child: Text('Submit', style: TextStyle(color: Theme.of(context).primaryColor),),
