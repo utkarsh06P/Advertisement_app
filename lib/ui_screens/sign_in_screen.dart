@@ -1,10 +1,11 @@
 import 'dart:developer';
 import 'package:advertisement_application_flutter/ui_screens/sign_up_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../global/widgets/button.dart';
 import '../global/widgets/text_field.dart';
 import '../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'map_screen.dart';
 import 'client_side_screen.dart';
 import 'home_screen.dart';
 
@@ -89,8 +90,25 @@ class _SignInScreenUiState extends State<SignInScreenUi> {
     final user = await _auth.loginUserWithEmailAndPassword(_email.text, _password.text);
 
     if (user != null) {
-      log("User Logged In");
-      goToClientScreen(context);
+
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection("users").doc(user.uid).get();
+
+      if(userDoc.exists) {
+        bool isFirstTime = userDoc["firstTimeLogin"] ?? true;
+
+        if(isFirstTime) {
+          await FirebaseFirestore.instance.collection("users").doc(user.uid).update({
+            "firstTimeLogin" : false,
+          });
+          log("User Logged In");
+          goToClientScreen(context);
+        } else {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => MapScreen()),
+          );
+        }
+      }
     } else {
       log("Login failed");
       ScaffoldMessenger.of(context).showSnackBar(

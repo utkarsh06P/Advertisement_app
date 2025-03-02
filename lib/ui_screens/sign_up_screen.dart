@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:advertisement_application_flutter/ui_screens/sign_in_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../global/widgets/button.dart';
 import '../global/widgets/text_field.dart';
@@ -92,8 +93,24 @@ class _SignUpUiScreenState extends State<SignUpUiScreen> {
     final user =
     await _auth.createUserWithEmailAndPassword(_email.text, _password.text);
     if (user != null) {
-      print("User Created Succesfully");
-      goToHome(context);
+      await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
+        "firstTimeLogin":true,
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "User registered successfully! Please log in.",
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 3),
+        ),
+      );
+
+      // Delay navigation to sign-in screen after 3 seconds
+      Future.delayed(const Duration(seconds: 3), () {
+        goToHome(context);
+      });
     }
   }
 }
