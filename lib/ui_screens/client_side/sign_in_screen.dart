@@ -1,13 +1,13 @@
 import 'dart:developer';
-import 'package:advertisement_application_flutter/ui_screens/sign_up_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/client_side/sign_up_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../global/widgets/button.dart';
-import '../global/widgets/text_field.dart';
-import '../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
-import 'map_screen.dart';
-import 'client_side_screen.dart';
-import 'home_screen.dart';
+import '../../global/widgets/button.dart';
+import '../../global/widgets/text_field.dart';
+import '../../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'client_map_screen.dart';
+import 'client_request_form_screen.dart';
+import '../home_screen.dart';
 
 class SignInScreenUi extends StatefulWidget {
   const SignInScreenUi({super.key});
@@ -83,7 +83,7 @@ class _SignInScreenUiState extends State<SignInScreenUi> {
   );
   goToClientScreen(BuildContext context) => Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const ClientSideScreen())
+    MaterialPageRoute(builder: (context) => const RequestFormScreen())
   );
 
   _login() async {

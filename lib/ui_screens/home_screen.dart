@@ -1,12 +1,12 @@
 
-import 'package:advertisement_application_flutter/ui_screens/sign_in_screen.dart';
-import 'package:advertisement_application_flutter/ui_screens/sign_up_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/client_side/sign_in_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/client_side/sign_up_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'admin_login_screen.dart';
+import 'admin_side/admin_login_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

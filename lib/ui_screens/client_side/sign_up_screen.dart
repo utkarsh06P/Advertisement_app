@@ -1,11 +1,11 @@
 import 'dart:developer';
-import 'package:advertisement_application_flutter/ui_screens/sign_in_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/client_side/sign_in_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../global/widgets/button.dart';
-import '../global/widgets/text_field.dart';
-import '../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
-import 'home_screen.dart';
+import '../../global/widgets/button.dart';
+import '../../global/widgets/text_field.dart';
+import '../../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import '../home_screen.dart';
 
 class SignUpUiScreen extends StatefulWidget {
   const SignUpUiScreen({super.key});

@@ -1,4 +1,9 @@
-import 'package:advertisement_application_flutter/ui_screens/client_side_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/admin_side/admin_analytics_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/admin_side/admin_map_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/admin_side/admin_request_received_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/client_side/client_analytics_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/client_side/client_request_form_screen.dart';
+import 'package:advertisement_application_flutter/ui_screens/client_side/client_map_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

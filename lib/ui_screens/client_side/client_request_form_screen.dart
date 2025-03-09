@@ -1,21 +1,19 @@
-import 'dart:developer';
 import 'dart:io';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
-import '../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
-import 'map_screen.dart';
-import 'home_screen.dart';
+import '../../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'client_map_screen.dart';
+import '../home_screen.dart';
 
-class ClientSideScreen extends StatefulWidget {
-  const ClientSideScreen({super.key});
+class RequestFormScreen extends StatefulWidget {
+  const RequestFormScreen({super.key});
 
   @override
-  State<ClientSideScreen> createState() => _ClientSideScreenState();
+  State<RequestFormScreen> createState() => _RequestFormScreenState();
 }
 
-class _ClientSideScreenState extends State<ClientSideScreen> {
+class _RequestFormScreenState extends State<RequestFormScreen> {
   final _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();

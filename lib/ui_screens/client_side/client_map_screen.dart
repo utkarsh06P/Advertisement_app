@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
+import 'client_analytics_screen.dart';
+import 'client_request_form_screen.dart';
+
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
 
@@ -42,7 +45,7 @@ class _MapScreenState extends State<MapScreen> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter valid coordinates')),
+        const SnackBar(content: Text('Please enter valid coordinates')),
       );
     }
   }
@@ -51,8 +54,23 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Map Screen'),
+        title: const Text('Map Screen'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12.0), // Add padding for spacing
+            child: ElevatedButton(
+              onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AnalyticsScreen()),
+                  );
+              },
+              child: Text('Dashboard', style: TextStyle(color: Theme.of(context).primaryColor),),
+            ),
+          ),
+        ],
       ),
+
       body: Column(
         children: [
           Padding(
@@ -105,6 +123,29 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomRight,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RequestFormScreen()), // Navigate to Map Screen
+                );
+              },
+              backgroundColor: Theme.of(context).primaryColor, // Customize button color
+              child: const Icon(Icons.map, color: Colors.white), // Map icon inside button
+            ),
+            const SizedBox(height: 8), // Space between button and text
+            const Text(
+              'Request Form',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+          ],
+        ),
       ),
     );
   }
